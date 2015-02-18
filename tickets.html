@@ -9,7 +9,54 @@
   </head>
   <body>
     <div class="container">
+      <h3>Movie Ticket Order Form</h3>
+        <form id='orderTicket'>
+          <select name="movie" id="movie">
+            <option value="movie">Monty Python's Holy Grail</option>
+            <option value="movie">James Joyce's "Ulysses"</option>
+            <option value="movie">Monty Asks the Big Questions</option>
+            <option value="movie">James Forgets the Answers</option>
+            <option value="movie">Monty and James' Christmas Vacation</option>
+          </select>
+          <select name='day' id='day'>
+            <option value='Monday'> Monday </option>
+            <option value='Tuesday'> Tuesday </option>
+            <option value='Wednesday'> Wednesday </option>
+            <option value='Thursday'> Thursday </option>
+            <option value='Friday'> Friday </option>
+            <option value='Saturday'> Saturday </option>
+            <option value='Sunday'> Sunday </option>
+          </select>
+        <select name="timeOfDay" id="timeOfDay">
+          <option value="Matinee">1:10 PM </option>
+          <option value="Matinee">3:30 PM </option>
+          <option value="Matinee">4:55 PM </option>
+          <option value="Evening">6:10 PM </option>
+          <option value="Evening">7:30 PM </option>
+          <option value="Evening">8:55 PM </option>
+          <option value="Evening">10:10 PM </option>
+        </select>
+        <!-- <select name="age" id="age">
+          <option value='Child'>Child </option>
+          <option value='Student'>Student</option>
+          <option value='Adult'>Adult </option>
+          <option value='Senior'>Senior</option>
+        </select> -->
+        <p>Child</p>
+        <input type='text' id='child' value='0'>
+        <p>Student</p>
+        <input type='text' id='student' value='0'>
+        <p>Adult</p>
+        <input type='text' id='adult' value='0'>
+        <p>Senior</p>
+        <input type='text' id='senior' value='0'>
+        <button = 'submit'>Purchase Tickets</button>
+      </form>
 
+        <h3>Here are your tickets</h3>
+          <ul class="purchasedTickets">
+
+          </ul>
     </div>
   </body>
 </html>
