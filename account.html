@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src='js/jquery-1.11.2.js'></script>
+    <script src='js/scripts.js'></script>
+    <title>The Bank</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Open an Account</h3>
+      <form id="createAccount">
+        <p>Name</p>
+        <input type="text" id="name" placeholder="Your name">
+        <p>Initial Deposit</p>
+        <input type="text" id="firstDeposit" placeholder="Initial deposit">
+        <button type="submit" class="btn btn-sm btn-success">Open an Account</button>
+      </form>
+
+      <h3>Move Your Money Around</h3>
+      <form id="modifyAccount">
+        <p>Deposit</p>
+        <input type="text" id='deposit' value= "0" placeholder='Deposit amount'>
+        <p>Withdraw</p>
+        <input type='text' id='withdraw' value= "0" placeholder='Withdraw amount'>
+        <button type='submit' class='btn btn-sm btn-success'>Modify an Account</button>
+      </form>
+
+      <div id="accountBalance">
+        <h3>Your Account Balance</h3>
+        <p>Hello <span id="accountName"></span>, your account balance is <span id="balance"></span>!</p>
+      </div>
+
+    </div>
+  </body>
+</html>
