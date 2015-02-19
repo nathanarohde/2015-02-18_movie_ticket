@@ -42,13 +42,11 @@ $(document).ready(function(event) {
     var adult= parseInt($('input#adult').val());
     var senior= parseInt($('input#senior').val());
 
-
-    // var age = $('select#age').val();
-
     var movieTicket = Object.create(MovieTicket);
 
-    var dayPrice = movieTicket.calcuatePrice(day, timeOfDay);
+    var dayPrice = movieTicket.calculatePrice(day, timeOfDay);
     var totalPrice = movieTicket.groupPrice(child,student,adult,senior,dayPrice);
+
 
     $("ul.purchasedTickets").append("<li><span class='ticket'>" + "$" + totalPrice + "</span></li>");
     event.preventDefault();
