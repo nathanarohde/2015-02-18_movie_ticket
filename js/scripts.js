@@ -2,8 +2,16 @@ var MovieTicket = {
 
   price: 0,
   orderPrice:0,
+  groupPrice: function(child, student, adult, senior, calculateprice) {
 
-  calculatePrice: function(movie, day, timeOfDay, child, student, adult, senior) {
+    this.orderPrice += (child*(calculateprice));
+    this.orderPrice += (student*(calculateprice+1.5));
+    this.orderPrice += (adult*(calculateprice+2));
+    this.orderPrice += (senior*(calculateprice+1));
+
+    return this.orderPrice
+  },
+  calculatePrice: function(day, timeOfDay) {
 
     if (day === "Monday" || "Tuesday" || "Wednesday" || "Thursday") {
       var costDay = 2.00
@@ -12,35 +20,15 @@ var MovieTicket = {
     } else  {
       costDay = 3.00
     }
-    this.price += costDay;
 
     if (timeOfDay === "Matinee") {
       var costTimeOfDay = 0
     } else { costTimeOfDay = 3.00
-
     }
-    this.price += costTimeOfDay;
 
-    this.orderPrice += (child*(this.price));
-    this.orderPrice += (student*(this.price+1.5));
-    this.orderPrice += (adult*(this.price + 2));
-    this.orderPrice += (senior*(this.price + 1));
+    return this.price += costDay + costTimeOfDay;
 
-
-    // if (age === "Child") {
-    //   var costAge = 0
-    // } else if (age === "Adult") {
-    //   costAge = 2.00
-    // } else if (age === "Student") {
-    //   costAge = 1.50
-    // } else { costAge = 1.00
-    //
-    // }
-
-
-   return this.orderPrice;
-  }
-
+ }
 };
 
 $(document).ready(function(event) {
@@ -54,11 +42,15 @@ $(document).ready(function(event) {
     var adult= parseInt($('input#adult').val());
     var senior= parseInt($('input#senior').val());
 
+
     // var age = $('select#age').val();
 
     var movieTicket = Object.create(MovieTicket);
 
-    $("ul.purchasedTickets").append("<li><span class='ticket'>" + "$" + movieTicket.calculatePrice(movie, day, timeOfDay, child, student, adult, senior) + "</span></li>");
+    var dayPrice = movieTicket.calcuatePrice(day, timeOfDay);
+    var totalPrice = movieTicket.groupPrice(child,student,adult,senior,dayPrice);
+
+    $("ul.purchasedTickets").append("<li><span class='ticket'>" + "$" + totalPrice + "</span></li>");
     event.preventDefault();
   });
 
